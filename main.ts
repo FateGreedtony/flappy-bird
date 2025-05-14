@@ -32,7 +32,7 @@ basic.forever(function () {
         }
     }
     ticks += 1
-    if (ticks % 2 == 0 && speed > 500) {
+    if (ticks % 5 == 0 && speed > 500) {
         speed += -100
     }
     basic.pause(speed)
