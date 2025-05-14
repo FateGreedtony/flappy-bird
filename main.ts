@@ -10,6 +10,7 @@ let bird: game.LedSprite = null
 bird = game.createSprite(0, 2)
 bird.set(LedSpriteProperty.Blink, 300)
 let obstacle: game.LedSprite[] = []
+let speed = 1000
 basic.forever(function () {
     while (obstacle.length > 0 && obstacle[0].get(LedSpriteProperty.X) == 0) {
         obstacle.removeAt(0).delete()
@@ -31,5 +32,8 @@ basic.forever(function () {
         }
     }
     ticks += 1
-    basic.pause(1000)
+    if (ticks % 2 == 0 && speed > 500) {
+        speed += -100
+    }
+    basic.pause(speed)
 })
